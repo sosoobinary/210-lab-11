@@ -10,11 +10,12 @@ struct Customer {
     string* drinks;
     int numDrinks;
 
+    Customer() : drinks(nullptr), numDrinks(0) {}
+
     ~Customer() {
         if (drinks) {
             delete [] drinks;
         }
-        drinks = nullptr;
     }
 };
 
@@ -38,11 +39,11 @@ int main() {
 void inputCustomer(Customer * cptr) {
     static int numCust = 1;
     cout << "Input data for Customer #" << numCust << ":\n";
-    cout << "Name: " << cptr->name;
+    cout << "Name: ";
     getline(cin, cptr->name);
-    cout << "Age: " << cptr->age << endl;
+    cout << "Age: ";
     cin >> cptr->age;
-    cout << "Number of Drinks: " << cptr->numDrinks << endl;
+    cout << "Number of Drinks: ";
     cin >> cptr->numDrinks;
     cin.ignore();
     cptr->drinks = new string[cptr->numDrinks];
