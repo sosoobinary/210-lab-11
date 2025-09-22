@@ -15,3 +15,10 @@ struct Customer {
     }
 };
 
+void inputCustomer(Customer *);
+void displayCustomer(Customer *);
+
+int main() {
+    Customer *
+}
+
