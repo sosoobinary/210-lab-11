@@ -1,9 +1,11 @@
 #include <iostream>
 #include <string>
-
 using namespace std;
 
+const int numCustomers = 3;
+
 struct Customer {
+    string name;
     int age;
     string* drinks;
 
@@ -19,6 +21,26 @@ void inputCustomer(Customer *);
 void displayCustomer(Customer *);
 
 int main() {
-    Customer *
+    Customer *barTable = new Customer[numCustomers];
+
+    for(int i = 0; i < numCustomers; i++) {
+        inputCustomer(&barTable[i]);
+    }
+
+    for(int i = 0; i < numCustomers; i++) {
+        displayCustomer(&barTable[i]);
+    }
+
+    return 0;
+}
+
+void inputCustomer(Customer * cptr) {
+    static int numCust = 1;
+    cout << "Input data for Customer #" << numCust << ":\n";
+    cout << "Name: " << cptr->name << endl;
+    cout << "Age: " << cptr->age << endl;
+    for(int i = 0; i < numCustomers; i++) {
+
+    }
 }
 
