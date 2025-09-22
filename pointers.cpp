@@ -38,9 +38,25 @@ void inputCustomer(Customer * cptr) {
     static int numCust = 1;
     cout << "Input data for Customer #" << numCust << ":\n";
     cout << "Name: " << cptr->name << endl;
+    getline(cin, cptr->name);
     cout << "Age: " << cptr->age << endl;
+    cin >> cptr->age;
+    cptr->drinks = new string[numCustomers];
     for(int i = 0; i < numCustomers; i++) {
-
+        cout << "Drink #" << i+1 << ": ";
+        cin >> cptr->drinks[i];
     }
+    cin.ignore();
+    cout << endl << endl;
+    numCust++;
+}
+void displayCustomer(Customer * cptr) {
+    cout << "Customer summary:\n";
+    cout << "Name: " << cptr->name << endl;
+    cout << "Age: " << cptr->age << endl;
+    for (int i = 0; i < numCustomers; i++)
+        cout << "Drink #" << i + 1 << ": " 
+             << cptr->drinks[i] << endl;
+    cout << endl << endl;
 }
 
