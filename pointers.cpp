@@ -8,6 +8,7 @@ struct Customer {
     string name;
     int age;
     string* drinks;
+    int numDrinks;
 
     ~Customer() {
         if (drinks) {
@@ -37,16 +38,18 @@ int main() {
 void inputCustomer(Customer * cptr) {
     static int numCust = 1;
     cout << "Input data for Customer #" << numCust << ":\n";
-    cout << "Name: " << cptr->name << endl;
+    cout << "Name: " << cptr->name;
     getline(cin, cptr->name);
     cout << "Age: " << cptr->age << endl;
     cin >> cptr->age;
-    cptr->drinks = new string[numCustomers];
-    for(int i = 0; i < numCustomers; i++) {
-        cout << "Drink #" << i+1 << ": ";
-        cin >> cptr->drinks[i];
-    }
+    cout << "Number of Drinks: " << cptr->numDrinks << endl;
+    cin >> cptr->numDrinks;
     cin.ignore();
+    cptr->drinks = new string[cptr->numDrinks];
+    for(int i = 0; i < cptr->numDrinks; i++) {
+        cout << "Drink #" << i+1 << ": ";
+        getline(cin, cptr->drinks[i]);
+    }
     cout << endl << endl;
     numCust++;
 }
